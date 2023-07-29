@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #f8f7f7;
+    color: rgb(28, 30, 33);
+    direction: ltr;
+    line-height: 1.34;
+    unicode-bidi: embed;
+}
+@media screen and (min-width: 480px) {
+    .container {
+      margin-left: 50px;
+    }
+  }
+@media screen and (min-width: 480px) {
+    .first {
+      margin-top: 180px;
+    }
+  }
+  @media screen and (min-width: 480px) {
+    .col-sm-12 {
+      margin-top: 90px;
+    }
+  }
+
+img {
+    width: 300px;
+    margin-right: 200px;
+}
+
+h2 {
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    width: 500px;
+    position: relative;
+    margin-left: 30px;
+
+}
+
+.login-form {
+    padding-bottom: 24px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+    box-sizing: border-box;
+    width: 396px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 8px;
+    margin: 40px 0px 0px;
+    padding: 20px 0px 28px;
+    display: block;
+}
+
+input {
+    font-size: 17px;
+    width: 364px;
+    height: 55px;
+    margin: 5px;
+    border-radius: 6px;
+    border: 1px solid rgb(192, 188, 188);
+}
+
+input:active {
+    border-color: aqua;
+}
+
+::placeholder {
+    color: rgb(140, 138, 138);
+    opacity: 1;
+    font-weight: 400;
+}
+
+#signup {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 364px;
+    margin-top: 15px;
+    color: aliceblue;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+hr {
+    width: 350px;
+    margin-left: 20px;
+}
+
+#create {
+    background-color: #42b72a;
+    color: aliceblue;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    line-height: 48px;
+    padding: 0 16px;
+    font-weight: 700;
+
+}
+p{
+    font-size: 13px;
+}
