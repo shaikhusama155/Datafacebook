@@ -22,8 +22,9 @@ const auth = getAuth();
 const db = getFirestore(app);
 
 
+let createbutton = document.getElementById("create");
 let signbutton = document.getElementById("signup");
-signbutton.addEventListener("click", function () {
+createbutton.addEventListener("click", function () {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   createUserWithEmailAndPassword(auth, email.value, password.value)
@@ -40,6 +41,8 @@ signbutton.addEventListener("click", function () {
       // ..
     });
 })
+
+signbutton.addEventListener("click")
 // const loginbutton = document.getElementById("login")
 // const signupbutton = document.getElementById("signup")
 // const mainE= document.getElementById("email")
