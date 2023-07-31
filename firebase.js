@@ -42,7 +42,23 @@ createbutton.addEventListener("click", function () {
     });
 })
 
-signbutton.addEventListener("click")
+signbutton.addEventListener("click", function(){
+  let email = document.getElementById("email");
+  let password = document.getElementById("password");
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log("user==>", user);
+    location.replace("./main.html")
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log("erorr=>", errorMessage);
+  });
+})
 // const loginbutton = document.getElementById("login")
 // const signupbutton = document.getElementById("signup")
 // const mainE= document.getElementById("email")
