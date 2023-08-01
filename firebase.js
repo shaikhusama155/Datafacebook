@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+import { getDatabase, ref, set, onValue,starCountRef } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
 
 
 const firebaseConfig = {
@@ -19,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
-const db = getFirestore(app);
+const db = getDatabase();
 
 
 let createbutton = document.getElementById("create");
@@ -31,9 +32,13 @@ createbutton.addEventListener("click", function () {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log("user==>", user);
-      // ...
+      set(ref(db, `users/${user.uid}`), {
+        email: email.value,
+        password: password.value,
+
+      });
     })
+    // ...
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -42,22 +47,26 @@ createbutton.addEventListener("click", function () {
     });
 })
 
-signbutton.addEventListener("click", function(){
+signbutton.addEventListener("click", function () {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log("user==>", user);
-    location.replace("./main.html")
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log("erorr=>", errorMessage);
-  });
+  signInWithEmailAndPassword(auth, email.value, password.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        updateStarCount(postElement, data);
+        console.log("data==>",data.val());
+      });
+      location.replace("main.html")
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log("erorr=>", errorMessage);
+    });
 })
 // const loginbutton = document.getElementById("login")
 // const signupbutton = document.getElementById("signup")
