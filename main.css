@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.img img{
+    width: 150px;
+}
+.nav{
+    display: flex;
+}
+.nav .search{
+    margin-left: 250px;
+}
+.search input{
+width: 450px;
+margin-top: 10px;
+height: 40px;
+border-radius: 0px 20px 20px 0px;
+border: none;
+background-color:rgb(237, 239, 239) ;
+}
+.fa-magnifying-glass{
+    background-color: rgb(237, 239, 239) ;
+    padding: 12px;
+    margin-left: 0px;
+    border-radius: 20px 0px 0px 20px;
+    color: rgb(91, 91, 91);
+}
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
