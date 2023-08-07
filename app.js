@@ -1,6 +1,6 @@
 import { auth, db } from "./firebase.mjs";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { collection, addDoc, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 
 const signButton = document.getElementById('create');
@@ -10,10 +10,14 @@ const password = document.getElementById('password');
 
 signButton.addEventListener('click', () => {
     createUserWithEmailAndPassword(auth, email.value, password.value)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log('user=>', user);
+            await setDoc(doc(db, "users", user.uid), {
+                email: email.value,
+                password: password.value,
+            });
             alert('Account Created')
             // ...
         })
@@ -30,16 +34,16 @@ loginButton.addEventListener('click', () => {
             // Signed in 
             const user = userCredential.user;
             console.log('user=>', user);
-            try {
-                const docRef = await addDoc(collection(db, "usama"), {
-                    email: email.value,
-                    password: password.value,
-                });
-                console.log("Document written with ID: ", docRef.id);
-            } catch (e) {
-                console.error("Error adding document: ", e);
+            const docRef = doc(db, "users", user.uid);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+            } else {
+                // docSnap.data() will be undefined in this case
+                console.log("No such document!");
             }
-            location.replace('main.html')
+            // location.replace('main.html')
             // ...
         })
         .catch((error) => {

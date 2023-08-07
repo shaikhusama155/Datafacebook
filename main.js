@@ -10,7 +10,6 @@ onAuthStateChanged(auth, (user) => {
                 .then(() => {
                     // Email verification sent!
                     console.log("Email Sent");
-                    document.getElementById('db').style.display = "block";
                     // ...
                 });
         }
