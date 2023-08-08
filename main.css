@@ -2,41 +2,40 @@
     padding: 0;
     margin: 0;
 }
+body{
+    background-color: #848484;
+}
 .img img{
     width: 150px;
 }
+.row{
+ z-index: 2;
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+}
 .nav{
     display: flex;
-}
-.nav .search{
-    margin-left: 250px;
-}
+    flex-wrap: wrap;
+}   
 .search input{
 width: 450px;
 margin-top: 10px;
 height: 40px;
-border-radius: 0px 20px 20px 0px;
+border-radius: 20px 20px 20px 20px;
 border: none;
 background-color:rgb(237, 239, 239) ;
 }
-.fa-magnifying-glass{
-    background-color: rgb(237, 239, 239) ;
-    padding: 12px;
-    margin-left: 0px;
-    border-radius: 20px 0px 0px 20px;
-    color: rgb(91, 91, 91);
-}
-/* Styles for wrapping the search box */
-
 .main {
     width: 50%;
     margin: 50px auto;
 }
 
+
 /* Bootstrap 4 text input with search icon */
 
 .has-search .form-control {
     padding-left: 2.375rem;
+    border-radius: 20px px 0px 20px;
+
 }
 
 .has-search .form-control-feedback {
@@ -44,9 +43,80 @@ background-color:rgb(237, 239, 239) ;
     z-index: 2;
     display: block;
     width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
+    height: 4.375rem;
+    line-height: 2.475rem;
     text-align: center;
     pointer-events: none;
-    color: #aaa;
+    color: #4f4c4c;
+    border-radius: 20px 0px 0px 20px;
+}
+@media screen and (max-width: 480px) {
+    .search input {
+      display: none;
+      padding: 0px;
+      display: flex;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .img{
+      width: 10px;
+      margin-left: 0px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .right{
+      display: flex;
+    }
+  }
+.right{
+    padding-left: 250px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+.right img,.nav-item img{
+    border-radius: 60%;
+   width: 30px;
+}
+.right i {
+    background-color: #e2e2e2;
+    padding: 10px;
+    border-radius: 50px;
+}
+.fa-house{
+    color: rgb(50, 99, 246);
+}
+.fs-5{
+    padding-right: 10px;
+}
+.card-sm{
+    width: 150px;
+    flex-direction: column;
+    height: 250px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+}
+.card-sm:hover{
+    width: 153px;
+    height: 253px;
+}
+.card-sm img{
+    width: 100%;
+    height: 210px;
+    border-radius: 20px;
+
+}
+.card-sm p{
+    background-color: white;
+    color: black;
+}
+.add{
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+}
+.add img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }

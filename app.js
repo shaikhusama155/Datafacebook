@@ -43,7 +43,7 @@ loginButton.addEventListener('click', () => {
                 // docSnap.data() will be undefined in this case
                 console.log("No such document!");
             }
-            // location.replace('main.html')
+            location.replace('main.html')
             // ...
         })
         .catch((error) => {
