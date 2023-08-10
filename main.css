@@ -54,7 +54,7 @@ background-color:rgb(237, 239, 239) ;
     .search input {
       display: none;
       padding: 0px;
-      display: flex;
+      display: flex;width: 100%;
     }
   }
   @media screen and (max-width: 480px) {
@@ -73,9 +73,10 @@ background-color:rgb(237, 239, 239) ;
     font-size: 17px;
     margin-top: 10px;
 }
-.right img,.nav-item img{
+.right img,.slidebar img{
     border-radius: 60%;
    width: 30px;
+   height: 30px;
 }
 .right i {
     background-color: #e2e2e2;
@@ -120,3 +121,73 @@ background-color:rgb(237, 239, 239) ;
     height: 40px;
     border-radius: 50%;
 }
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    line-height: 1px;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    color: rgb(17, 17, 17);
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover{
+    background-color: #c6c6c6;
+    color: rgb(12, 12, 12);
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 300px;
+    padding: 1px 16px;
+    height: 1000px;
+    background-color: #f1f1f1;
+
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  /* @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  } */
+  .fa-youtube{
+    color:blue;
+  }
+  .fa-shop{
+    color: brown;
+  }
+  .fa-gamepad{
+    color: rgb(53, 105, 249);
+  }
+  .respon{
+    width: 80%;
+  }
